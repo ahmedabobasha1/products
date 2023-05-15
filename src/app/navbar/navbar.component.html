@@ -1,0 +1,34 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" routerLink="/"  routerLinkActive="myactive" [routerLinkActiveOptions]="{exact:true}" >products</a>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/add-product" routerLinkActive="myactive"  class="btn btn-primary">add-product</a>
+
+            <!-- <a class="nav-link" href="#">Dashboard</a> -->
+          </li>
+        </ul>
+        <!-- Left links -->
+  
+        <div class="d-flex align-items-center">
+          <button routerLink="/login" type="button" routerLinkActive="myactive" class="btn btn-primary px-3 me-2">
+            Login
+          </button>
+          <button routerLink="/register" type="button"routerLinkActive="myactive" class="btn btn-primary me-3">
+            Register
+          </button>
+          
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 my-5" *ngFor="let product of products">
+                        <!-- to send data from parent to child -->
+       <app-product-card [productItem]="product"></app-product-card>
+        
+        </div>
+       
+    </div>
+</div>
+
+

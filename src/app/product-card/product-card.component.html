@@ -1,0 +1,25 @@
+
+
+<div class="card-group"> 
+  <div class="card "  >
+  <img [src]="productItem.thumbnail" class="card-img-top" height="300px" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{productItem.title | uppercase}}</h5>
+    <p class="card-text">{{productItem.description}}</p> 
+    <p class="card-text ">{{productItem.price | currency:' EGY '}}</p>
+    <p class="card-text "> discountPercentage : {{productItem.discountPercentage}}%</p>
+    <p class="card-text ">rating : {{productItem.rating}}</p>
+    <p class="card-text ">stock : {{productItem.stock}}</p>
+    <p class="card-text ">brand :  {{productItem.brand}}</p>
+    <p class="card-text ">category :  {{productItem.category}}</p>
+    <p class="card-text">{{productItem.createdAt | date : "MMMM YYYY"}}</p>
+    <p [style.color]="productItem.stock<=0 ? 'red':'green'" class="card-text ">{{productItem.stock | countStock }}</p>
+    <div class="btn ">
+       <a [routerLink]="['product-deatils',productItem.id]" class="btn btn-primary  ">product-details</a>
+        <a [routerLink]="['addtocart',productItem.id]" class="btn btn-primary m-5 ">add to cart </a>
+    </div>
+   
+    <!-- <a (click)="redirecttodetails(productItem.id)" class="btn btn-primary">product-details</a> -->
+  </div>
+</div>
+</div>
