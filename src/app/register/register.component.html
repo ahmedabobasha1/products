@@ -1,1 +1,131 @@
-<p>register works!</p>
+<div class="wrapper rounded bg-white">
+
+    <div class="h3">Registration Form</div>
+
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="SubmitRegisterForm()">
+        <div class="row">
+            <div class="col-md-12 mt-md-0 mt-3" >
+                <label> Name</label>
+                <input type="text" class="form-control" 
+                
+                formControlName="name"
+                
+                >
+            </div>
+
+            <div class="col-md-4 mt-md-0 mt-3" *ngIf="registerForm.controls['name'].touched 
+            && registerForm.controls['name'].invalid">
+                <span class="far fa-user text-danger" *ngIf="registerForm.controls['name'].errors?.['required']">
+                   Name is required
+                </span>
+              
+            </div>
+        </div>
+   
+        <div class="row">
+            <div class="col-md-12 mt-md-0 mt-3">
+                <label>Email</label>
+                <input 
+                type="email" 
+                class="form-control" 
+                
+                formControlName="Email"
+                >
+            </div>
+
+            <div class="col-md-4 mt-md-0 mt-3"
+             *ngIf="registerForm.controls['Email'].touched 
+            && registerForm.controls['Email'].invalid">
+                <span class="far fa-user text-danger"
+                 *ngIf="registerForm.controls['Email'].errors?.['required']"
+                 >
+                    Email is required
+                </span>
+                <span class="far fa-user text-danger"
+                 *ngIf="registerForm.controls['Email'].errors?.['email']"
+                 >
+                    Email must be vaild format
+                </span>
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-md-0 mt-3">
+                <label>User Name</label>
+                <input type="text"
+                 class="form-control"
+                 formControlName="UserName"
+                 >
+            </div>
+
+            <div class="col-md-4 mt-md-0 mt-3"
+            *ngIf="registerForm.controls['UserName'].touched 
+           && registerForm.controls['UserName'].invalid">
+               <span class="far fa-user text-danger"
+                *ngIf="registerForm.controls['UserName'].errors?.['required']"
+                >
+                   username is required
+               </span>
+               <span class="far fa-user text-danger"
+                *ngIf="registerForm.controls['username'].errors?.['pattern']"
+                >
+                  username can't contain speace
+               </span>
+           </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-md-0 mt-3">
+                <label>password</label>
+                <input type="password" class="form-control" 
+                formControlName="password"
+                >
+            </div>
+
+            <div class="col-md-4 mt-md-0 mt-3"
+            *ngIf="registerForm.controls['password'].touched 
+           && registerForm.controls['password'].invalid">
+               <span class="far fa-user text-danger"
+                *ngIf="registerForm.controls['password'].errors?.['required']"
+                >
+                   password is required
+               </span>
+               <span class="far fa-user text-danger"
+                *ngIf="registerForm.controls['password'].errors?.['pattern']"
+                >
+                please Enter strong password
+               </span>
+           </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-md-0 mt-3">
+                <label>confirm password </label>
+                <input type="password" class="form-control"
+                
+                formControlName="confirmpassword"
+                >
+            </div>
+            <div class="col-md-4 mt-md-0 mt-3"
+            *ngIf="registerForm.controls['confirmpassword'].touched 
+           && registerForm.controls['confirmpassword'].invalid">
+               <span class="far fa-user text-danger"
+                *ngIf="registerForm.controls['confirmpassword'].errors?.['required']"
+                >
+                   password is required
+               </span>
+               <span class="far fa-user text-danger"
+                *ngIf="registerForm.controls['confirmpassword'].errors?.['pattern']"
+                >
+                please Enter strong password
+               </span>
+           </div>
+        </div>
+
+        <button class="btn btn-primary mt-3" type="submit" >submit</button>
+
+       
+    </form>
+
+</div>

@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="wrapper">
+
+    <div class="text-center mt-4 name">
+        login
+    </div>
+    <form class="p-3 mt-3" #productForm="ngForm" (ngSubmit)="sumbitProductform(productForm)">
+         
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" placeholder="Email Address " name="userEmail" ngModel #userEmail="ngModel" required
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+        </div>
+            <!-- display Email Error -->
+        <div class="form-field d-flex align-items-center text-danger" *ngIf="userEmail.touched && userEmail.invalid">
+            <span class="far fa-user" *ngIf="userEmail?.errors?.['required']">
+                Email is required
+            </span>
+            <span class="far fa-user" *ngIf="userEmail.errors?.['pattern']">
+                please Enter ivaild Email pattern
+
+            </span>
+
+        </div>
+                    <!-- password input -->
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" placeholder="Password" name="password" ngModel #password="ngModel" required
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+        </div>
+                    <!-- diplay password error -->
+        <div class="form-field d-flex align-items-center text-danger" *ngIf="password.touched && password.invalid">
+            <span class="far fa-user" *ngIf="password?.errors?.['required']">
+                password is required
+            </span>
+            <span class="far fa-user" *ngIf="password?.errors?.['pattern']">
+                please Enter strong password
+            </span>
+        </div>
+        <button class="btn mt-3" type="submit" [disabled]="productForm">Login</button>
+    </form>
+    <div class="text-center fs-6">
+        <span>Don't have account </span> ? <a [routerLink]="'/register'">Register</a>
+    </div>
+</div>
